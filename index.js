@@ -14,6 +14,7 @@ const handleClick = (event) => {
 };
 
 const verificarVictoria = () => {
+  score++;
   const div1 = document.getElementById(1);
   const div2 = document.getElementById(2);
   const div3 = document.getElementById(3);
@@ -67,8 +68,13 @@ const verificarVictoria = () => {
     forma7 ||
     forma8
   ) {
+    const linea = document.getElementById("linea");
+    linea.style.height = "10px";
+    linea.style.width = "600px";
+    linea.style.top = "80px";
+    linea.style.left = "0px";
     victoria = true;
-    alert(`Los ganadores son las ${turno ? "O" : "X"}`);
+    alert(`El ganador es: ${turno ? "O" : "X"}`);
   } else {
     if (score === 9) {
       alert("es un empate");
@@ -86,6 +92,12 @@ const reload = () => {
   const div7 = document.getElementById(7);
   const div8 = document.getElementById(8);
   const div9 = document.getElementById(9);
+
+  const linea = document.getElementById("linea");
+  linea.style.height = "0px";
+  linea.style.width = "0px";
+  linea.style.top = "0px";
+  linea.style.left = "0px";
 
   div1.innerText = "";
   div2.innerText = "";
