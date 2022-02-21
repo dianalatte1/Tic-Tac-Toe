@@ -1,16 +1,28 @@
 let turno = false;
 let victoria = false;
 let score = 0;
-// const lineas = [
-//   { height: "10px", width: "600px", top: "100px", left: "0px" },
-//   { height: "10px", width: "600px", top: "300px", left: "0px" },
-//   { height: "10px", width: "600px", top: "500px", left: "0px" },
-//   { height: "800px", width: "10px", top: "-100px", left: "300px", transform: "rotate(-45deg)" },
-//   { height: "800px", width: "10px", top: "-100px", left: "300px", transform: "rotate(45deg)" },
-//   { height: "600px", width: "10px", top: "0px", left: "95px" },
-//   { height: "600px", width: "10px", top: "0px", left: "300px" },
-//   { height: "600px", width: "10px", top: "0px", left: "500px" },
-// ];
+const lineas = [
+  { height: "10px", width: "600px", top: "100px", left: "0px" },
+  { height: "10px", width: "600px", top: "300px", left: "0px" },
+  { height: "10px", width: "600px", top: "500px", left: "0px" },
+  {
+    height: "800px",
+    width: "10px",
+    top: "-100px",
+    left: "300px",
+    transform: "rotate(-45deg)",
+  },
+  {
+    height: "800px",
+    width: "10px",
+    top: "-100px",
+    left: "300px",
+    transform: "rotate(45deg)",
+  },
+  { height: "600px", width: "10px", top: "0px", left: "95px" },
+  { height: "600px", width: "10px", top: "0px", left: "300px" },
+  { height: "600px", width: "10px", top: "0px", left: "500px" },
+];
 
 const handleClick = (event) => {
   const { id } = event.target;
@@ -22,10 +34,6 @@ const handleClick = (event) => {
     turno = !turno;
   }
 };
-// const formas = [forma1, forma2, forma3, forma4, forma5, forma6, forma7, forma8];
-
-// console.log(lineas);
-// console.log(formas);
 
 const verificarVictoria = () => {
   score++;
@@ -72,21 +80,39 @@ const verificarVictoria = () => {
     div3.innerHTML === div9.innerHTML &&
     div3.innerText !== "";
 
-  if (
-    forma1 ||
-    forma2 ||
-    forma3 ||
-    forma4 ||
-    forma5 ||
-    forma6 ||
-    forma7 ||
-    forma8
-  ) {
+  const formas = [
+    forma1,
+    forma2,
+    forma3,
+    forma4,
+    forma5,
+    forma6,
+    forma7,
+    forma8,
+  ];
+
+  // Find the index (position) of the form that won.
+  let position = null;
+  for (let i = 0; i < formas.length; i++) {
+    // if formas[i] === true
+    if (formas[i]) {
+      position = i;
+      break;
+    }
+  }
+
+  if (position !== null) {
+    // Get the line corresponding to the position.
+    const linea = lineas[position];
     const linea1 = document.getElementById("linea");
-    linea1.style.height = "10px";
-    linea1.style.width = "600px";
-    linea1.style.top = "100px";
-    linea1.style.left = "0px";
+    linea1.style.height = linea.height;
+    linea1.style.width = linea.width;
+    linea1.style.top = linea.top;
+    linea1.style.left = linea.left;
+    // linea1.style.height = "10px";
+    // linea1.style.width = "600px";
+    // linea1.style.top = "100px";
+    // linea1.style.left = "0px";
     // const linea2 = document.getElementById("linea");
     // linea2.style.height = "10px";
     // linea2.style.width = "600px";
