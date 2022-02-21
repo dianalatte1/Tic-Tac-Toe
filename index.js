@@ -7,21 +7,21 @@ const lineas = [
     width: "600px",
     top: "100px",
     left: "0px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
   {
     height: "10px",
     width: "600px",
     top: "300px",
     left: "0px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
   {
     height: "10px",
     width: "600px",
     top: "500px",
     left: "0px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
   {
     height: "800px",
@@ -42,21 +42,21 @@ const lineas = [
     width: "10px",
     top: "0px",
     left: "95px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
   {
     height: "600px",
     width: "10px",
     top: "0px",
     left: "300px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
   {
     height: "600px",
     width: "10px",
     top: "0px",
     left: "500px",
-    transform: "rotate(0deg)",
+    // transform: "rotate(0deg)",
   },
 ];
 
@@ -171,7 +171,7 @@ const reload = () => {
   linea.style.width = "0px";
   linea.style.top = "0px";
   linea.style.left = "0px";
-  linea.style.tranform = "rotate(0deg)";
+  // linea.style.tranform = "rotate(0deg)";
 
   div1.innerText = "";
   div2.innerText = "";
