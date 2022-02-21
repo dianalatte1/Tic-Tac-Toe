@@ -1,6 +1,16 @@
 let turno = false;
 let victoria = false;
 let score = 0;
+const lineas = [
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "600px", width: "10px", top: "0px", left: "500px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+  { height: "10px", width: "600px", top: "80px", left: "0px" },
+];
 
 const handleClick = (event) => {
   const { id } = event.target;
@@ -12,6 +22,10 @@ const handleClick = (event) => {
     turno = !turno;
   }
 };
+// const formas = [forma1, forma2, forma3, forma4, forma5, forma6, forma7, forma8];
+
+// console.log(lineas);
+// console.log(formas);
 
 const verificarVictoria = () => {
   score++;
@@ -68,11 +82,48 @@ const verificarVictoria = () => {
     forma7 ||
     forma8
   ) {
-    const linea = document.getElementById("linea");
-    linea.style.height = "10px";
-    linea.style.width = "600px";
-    linea.style.top = "80px";
-    linea.style.left = "0px";
+    const linea1 = document.getElementById("linea");
+    linea1.style.height = "10px";
+    linea1.style.width = "600px";
+    linea1.style.top = "100px";
+    linea1.style.left = "0px";
+    const linea2 = document.getElementById("linea");
+    linea2.style.height = "10px";
+    linea2.style.width = "600px";
+    linea2.style.top = "300px";
+    linea2.style.left = "0px";
+    const linea3 = document.getElementById("linea");
+    linea3.style.height = "10px";
+    linea3.style.width = "600px";
+    linea3.style.top = "500px";
+    linea3.style.left = "0px";
+    // linea vertical
+    const linea4 = document.getElementById("linea");
+    linea4.style.height = "850px";
+    linea4.style.width = "850px";
+    linea4.style.top = "10px";
+    linea4.style.left = "0px";
+    linea4.style.transform = "rotate(-45deg)";
+    const linea5 = document.getElementById("linea");
+    linea5.style.height = "600px";
+    linea5.style.width = "10px";
+    linea5.style.top = "0px";
+    linea5.style.left = "100px";
+    const linea6 = document.getElementById("linea");
+    linea6.style.height = "600px";
+    linea6.style.width = "10px";
+    linea6.style.top = "0px";
+    linea6.style.left = "100px";
+    const linea7 = document.getElementById("linea");
+    linea7.style.height = "600px";
+    linea7.style.width = "10px";
+    linea7.style.top = "0px";
+    linea7.style.left = "500px";
+    const linea8 = document.getElementById("linea");
+    linea8.style.height = "600px";
+    linea8.style.width = "10px";
+    linea8.style.top = "0px";
+    linea8.style.left = "500px";
     victoria = true;
     alert(`El ganador es: ${turno ? "O" : "X"}`);
   } else {
