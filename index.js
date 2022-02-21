@@ -109,6 +109,7 @@ const verificarVictoria = () => {
     linea1.style.width = linea.width;
     linea1.style.top = linea.top;
     linea1.style.left = linea.left;
+    linea1.style.transform = linea.transform;
     // linea1.style.height = "10px";
     // linea1.style.width = "600px";
     // linea1.style.top = "100px";
