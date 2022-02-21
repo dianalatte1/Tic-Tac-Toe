@@ -1,16 +1,64 @@
 let turno = false;
 let victoria = false;
 let score = 0;
-// const lineas = [
-//   { height: "10px", width: "600px", top: "100px", left: "0px" },
-//   { height: "10px", width: "600px", top: "300px", left: "0px" },
-//   { height: "10px", width: "600px", top: "500px", left: "0px" },
-//   { height: "800px", width: "10px", top: "-100px", left: "300px", transform: "rotate(-45deg)" },
-//   { height: "800px", width: "10px", top: "-100px", left: "300px", transform: "rotate(45deg)" },
-//   { height: "600px", width: "10px", top: "0px", left: "95px" },
-//   { height: "600px", width: "10px", top: "0px", left: "300px" },
-//   { height: "600px", width: "10px", top: "0px", left: "500px" },
-// ];
+const lineas = [
+  {
+    height: "10px",
+    width: "600px",
+    top: "100px",
+    left: "0px",
+    transform: "rotate(0deg)",
+  },
+  {
+    height: "10px",
+    width: "600px",
+    top: "300px",
+    left: "0px",
+    transform: "rotate(0deg)",
+  },
+  {
+    height: "10px",
+    width: "600px",
+    top: "500px",
+    left: "0px",
+    transform: "rotate(0deg)",
+  },
+  {
+    height: "800px",
+    width: "10px",
+    top: "-100px",
+    left: "300px",
+    transform: "rotate(-45deg)",
+  },
+  {
+    height: "800px",
+    width: "10px",
+    top: "-100px",
+    left: "300px",
+    transform: "rotate(45deg)",
+  },
+  {
+    height: "600px",
+    width: "10px",
+    top: "0px",
+    left: "95px",
+    transform: "rotate(0deg)",
+  },
+  {
+    height: "600px",
+    width: "10px",
+    top: "0px",
+    left: "300px",
+    transform: "rotate(0deg)",
+  },
+  {
+    height: "600px",
+    width: "10px",
+    top: "0px",
+    left: "500px",
+    transform: "rotate(0deg)",
+  },
+];
 
 const handleClick = (event) => {
   const { id } = event.target;
@@ -22,10 +70,6 @@ const handleClick = (event) => {
     turno = !turno;
   }
 };
-// const formas = [forma1, forma2, forma3, forma4, forma5, forma6, forma7, forma8];
-
-// console.log(lineas);
-// console.log(formas);
 
 const verificarVictoria = () => {
   score++;
@@ -72,59 +116,36 @@ const verificarVictoria = () => {
     div3.innerHTML === div9.innerHTML &&
     div3.innerText !== "";
 
-  if (
-    forma1 ||
-    forma2 ||
-    forma3 ||
-    forma4 ||
-    forma5 ||
-    forma6 ||
-    forma7 ||
-    forma8
-  ) {
+  const formas = [
+    forma1,
+    forma2,
+    forma3,
+    forma4,
+    forma5,
+    forma6,
+    forma7,
+    forma8,
+  ];
+
+  // Find the index (position) of the form that won.
+  let position = null;
+  for (let i = 0; i < formas.length; i++) {
+    // if formas[i] === true
+    if (formas[i]) {
+      position = i;
+      break;
+    }
+  }
+
+  if (position !== null) {
+    // Get the line corresponding to the position.
+    const linea = lineas[position];
     const linea1 = document.getElementById("linea");
-    linea1.style.height = "10px";
-    linea1.style.width = "600px";
-    linea1.style.top = "100px";
-    linea1.style.left = "0px";
-    // const linea2 = document.getElementById("linea");
-    // linea2.style.height = "10px";
-    // linea2.style.width = "600px";
-    // linea2.style.top = "300px";
-    // linea2.style.left = "0px";
-    // const linea3 = document.getElementById("linea");
-    // linea3.style.height = "10px";
-    // linea3.style.width = "600px";
-    // linea3.style.top = "500px";
-    // linea3.style.left = "0px";
-    // // linea vertical
-    // const linea4 = document.getElementById("linea");
-    // linea4.style.height = "800px";
-    // linea4.style.width = "10px";
-    // linea4.style.top = "-100px";
-    // linea4.style.left = "300px";
-    // linea4.style.transform = "rotate(-45deg)";
-    // const linea5 = document.getElementById("linea");
-    // linea5.style.height = "800px";
-    // linea5.style.width = "10px";
-    // linea5.style.top = "-100px";
-    // linea5.style.left = "300px";
-    // linea5.style.transform = "rotate(45deg)";
-    // const linea6 = document.getElementById("linea");
-    // linea6.style.height = "600px";
-    // linea6.style.width = "10px";
-    // linea6.style.top = "0px";
-    // linea6.style.left = "95px";
-    // const linea7 = document.getElementById("linea");
-    // linea7.style.height = "600px";
-    // linea7.style.width = "10px";
-    // linea7.style.top = "0px";
-    // linea7.style.left = "300px";
-    // const linea8 = document.getElementById("linea");
-    // linea8.style.height = "600px";
-    // linea8.style.width = "10px";
-    // linea8.style.top = "0px";
-    // linea8.style.left = "500px";
+    linea1.style.height = linea.height;
+    linea1.style.width = linea.width;
+    linea1.style.top = linea.top;
+    linea1.style.left = linea.left;
+    linea1.style.transform = linea.transform;
     victoria = true;
     alert(`El ganador es: ${turno ? "O" : "X"}`);
   } else {
@@ -150,6 +171,7 @@ const reload = () => {
   linea.style.width = "0px";
   linea.style.top = "0px";
   linea.style.left = "0px";
+  linea.style.tranform = "rotate(0deg)";
 
   div1.innerText = "";
   div2.innerText = "";
