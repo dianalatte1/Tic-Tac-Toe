@@ -155,6 +155,7 @@ const verificarVictoria = () => {
   }
 };
 
+// Re initialize the UI.
 const reload = () => {
   const div1 = document.getElementById(1);
   const div2 = document.getElementById(2);
